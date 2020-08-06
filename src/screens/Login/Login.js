@@ -22,7 +22,7 @@ const Login = ({ doLogin, AuthorisationData, navigation }) => {
   const [pin, setPin] = React.useState('')
 
   const forgotPassword = () => {
-    nsavigation.navigate(screens.ForgotPassWord)
+    navigation.navigate(screens.ForgotPassWord)
   }
 
   const onLogin = () => {
@@ -46,6 +46,7 @@ const Login = ({ doLogin, AuthorisationData, navigation }) => {
   }
 
   const isActive = username && password && pin
+
   return (
     <Block flex={1} style={{ backgroundColor: colors.WHITE }}>
       <StatusBar barStyle="light-content" backgroundColor={colors.PRIMARY} />
