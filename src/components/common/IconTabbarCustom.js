@@ -4,21 +4,17 @@ import { StyleSheet, Text } from 'react-native'
 import { get } from 'lodash'
 import { setValue, getWidth } from 'utils/utils'
 import colors from 'utils/colors'
+import screens from 'navgation/screens'
 import VectorIcon from './VectorIcon'
-
 
 export default class IconTabbarCustom extends React.PureComponent {
   get getIcon() {
     const { route } = this.props
     switch (route.name) {
-      case 'Profile':
+      case screens.NewFeeds:
         return 'person-outline'
-      case 'Document':
+      case 'Hello':
         return 'file-document-outline'
-      case 'Activity':
-        return 'pen'
-      case 'Dashboard':
-        return 'grid'
       default:
         return ''
     }
@@ -27,14 +23,10 @@ export default class IconTabbarCustom extends React.PureComponent {
   get getIconType() {
     const { route } = this.props
     switch (route.name) {
-      case 'Profile':
+      case screens.NewFeeds:
         return 'md'
-      case 'Document':
+      case 'Hello':
         return 'mdc'
-      case 'Activity':
-        return 'mdc'
-      case 'Dashboard':
-        return 'simple'
       default:
         return ''
     }
@@ -53,14 +45,10 @@ export default class IconTabbarCustom extends React.PureComponent {
   get sizeIcon() {
     const { route } = this.props
     switch (route.name) {
-      case 'Profile':
+      case screens.NewFeeds:
         return 20
-      case 'Document':
+      case 'Hello':
         return 20
-      case 'Activity':
-        return 20
-      case 'Dashboard':
-        return 14
       default:
         return 20
     }
@@ -69,17 +57,16 @@ export default class IconTabbarCustom extends React.PureComponent {
   get colorIcon() {
     const { focused } = this.props
     if (focused) {
-      return colors.PRIMARY
+      return colors.RED
     }
     return colors.SMOKE
   }
-
 
   render() {
     const { focused, size, color, route } = this.props
     const name = get(route, 'name')
     return (
-      <Block row middle styles={styles.containz}>
+      <Block middle styles={styles.containz}>
         <VectorIcon
           color={this.colorIcon}
           size={this.sizeIcon}
@@ -105,7 +92,7 @@ const styles = StyleSheet.create({
   labelActive: {
     fontFamily: 'EffraMedium-Regular',
     fontSize: setValue(12),
-    color: colors.PRIMARY,
+    color: colors.RED,
     paddingLeft: getWidth(5),
   },
 })

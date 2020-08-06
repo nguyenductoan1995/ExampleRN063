@@ -1,16 +1,16 @@
-
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Login } from 'screens/Login'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
-import screens from './screens'
+import { NewFeeds } from 'screens/NewFeeds'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { getHeight, setValue } from 'utils/utils'
+import { IconTabbarCustom } from 'components/common'
+import colors from 'utils/colors'
 import { AuthContext } from './context'
-import { NewFeeds } from 'screens/NewFeeds';
-import { createBottomTabNavigator } from  '@react-navigation/bottom-tabs'
-import { getHeight, setValue } from 'utils/utils';
-import { IconTabbarCustom } from 'components/common';
+import screens from './screens'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -29,25 +29,20 @@ function Home() {
       tabBarOptions={{
         activeTintColor: 'red',
         inactiveTintColor: 'blue',
-        activeBackgroundColor: 'rgba(38, 148, 120,0.2)',
+        activeBackgroundColor: colors.BubbleBG,
         style: {
           height: getHeight(56),
-          paddingTop: getHeight(12),
-          borderTopWidth: 0,
+          // borderTopWidth: 0,
         },
-        tabStyle: {
-          height: 31,
-          borderRadius: setValue(6),
-
-        },
+        // tabStyle: {
+        //   height: 31,
+        //   borderRadius: setValue(6),
+        // },
       }}
 
     >
       <Tab.Screen name={screens.NewFeeds} component={NewFeeds} />
-      {/* <Tab.Screen name={screens.NewFeeds} component={NewFeeds} /> */}
-     {/*  <Tab.Screen name={screens.Document} component={Document} />
-      <Tab.Screen name={screens.Profile} component={Profile} /> */}
-
+      <Tab.Screen name="Hello" component={NewFeeds} />
     </Tab.Navigator>
   )
 }
@@ -119,19 +114,19 @@ function App({ logged }) {
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
           {authStack ? (
-            <Stack.Screen 
+            <Stack.Screen
               name={screens.AuthStack}
               component={AuthStack}
             />
           ) : (
-                
-                   <Stack.Screen
-                    options={{ headerMode: 'none' }}
-                    name={screens.Home}
-                    component={Home}
-                   />
-               
-              )}
+
+            <Stack.Screen
+              options={{ headerMode: 'none' }}
+              name={screens.Home}
+              component={Home}
+            />
+
+          )}
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>
@@ -144,6 +139,5 @@ const mapStateToProps = ({ authStore }) => {
     logged,
   }
 }
-
 
 export default connect(mapStateToProps)(App)

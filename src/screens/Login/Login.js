@@ -94,7 +94,7 @@ const Login = ({ doLogin, AuthorisationData, navigation }) => {
       </ScrollView>
       <Block style={[styles.btnLogin]}>
         <Button
-          disabled={!isActive}
+          // disabled={!isActive}
           safe
           backgroundColor={colors.PRIMARY}
           onPress={onLogin}
