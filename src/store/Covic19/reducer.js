@@ -5,24 +5,27 @@ import * as types from './constants'
 
 const INITIAL_STATE = {
   isLoading: false,
-  dashBoardData: null,
+  Covic: null,
 }
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case types.GET_DASHBOARD_REQUEST:
+    case types.GET_COVIC_REQUEST: {
       return {
         ...state,
-        isLoading: true,
       }
-    case types.GET_DASHBOARD_SUCCESS:
+    }
+    case types.GET_COVIC_SUCCESS: {
       return {
         ...state,
-        isLoading: false,
-        dashBoardData: get(action, 'payload.data', null),
+        Covic: get(action, 'payload.data'),
       }
-    case types.GET_DASHBOARD_FAILURE:
-      return { ...state, isLoading: false }
+    }
+    case types.GET_COVIC_FAILURE: {
+      return {
+        ...state,
+      }
+    }
     default:
       return state
   }

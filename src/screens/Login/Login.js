@@ -3,16 +3,13 @@ import { StyleSheet, Text, Platform, TouchableOpacity, StatusBar } from 'react-n
 import { Block } from 'galio-framework'
 import colors from 'utils/colors'
 import { getHeight, getWidth, setValue, screenWidth } from 'utils/utils'
-import FastImage from 'react-native-fast-image'
-import { tree } from 'assets/images'
 import { Input, Button } from 'components/common'
-import { InCorrect } from 'components/Login'
 import { ScrollView } from 'react-native-gesture-handler'
 import screens from 'navgation/screens'
 import { get } from 'lodash'
 import { connect } from 'react-redux'
-import { login } from 'store/Authorisation/actions'
 import { AuthContext } from 'navgation/context'
+import { login } from 'store/Authorisation/actions'
 
 const Login = ({ doLogin, AuthorisationData, navigation }) => {
   const { mainStack } = React.useContext(AuthContext)
@@ -22,20 +19,19 @@ const Login = ({ doLogin, AuthorisationData, navigation }) => {
   const [pin, setPin] = React.useState('')
 
   const forgotPassword = () => {
-    nsavigation.navigate(screens.ForgotPassWord)
+    navigation.navigate(screens.ForgotPassWord)
   }
 
   const onLogin = () => {
     // const clientID = get(AuthorisationData, 'apiclientid')
     // const clientSecret = get(AuthorisationData, 'apiclientsecret')
-    // doLogin({
-    //   clientID,
-    //   clientSecret,
-    //   username,
-    //   password,
-    //   pin,
-    // }, onNext)
-    onNext({ success: true })
+    doLogin({
+      params: {
+        // country: 'Vietnam',
+      },
+      cb: () => { onNext({ success: true }) },
+    })
+    // onNext({ success: true })
   }
 
   const onNext = ({ success, errorMessage }) => {
@@ -44,8 +40,6 @@ const Login = ({ doLogin, AuthorisationData, navigation }) => {
     }
     alert(errorMessage)
   }
-
-  const isActive = username && password && pin
   return (
     <Block flex={1} style={{ backgroundColor: colors.WHITE }}>
       <StatusBar barStyle="light-content" backgroundColor={colors.PRIMARY} />

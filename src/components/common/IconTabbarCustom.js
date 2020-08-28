@@ -12,9 +12,9 @@ export default class IconTabbarCustom extends React.PureComponent {
     const { route } = this.props
     switch (route.name) {
       case screens.NewFeeds:
-        return 'person-outline'
-      case 'Hello':
-        return 'file-document-outline'
+        return 'virus'
+      case screens.VietNam:
+        return 'shield-virus'
       default:
         return ''
     }
@@ -24,9 +24,9 @@ export default class IconTabbarCustom extends React.PureComponent {
     const { route } = this.props
     switch (route.name) {
       case screens.NewFeeds:
-        return 'md'
-      case 'Hello':
         return 'mdc'
+      case screens.VietNam:
+        return 'fa5'
       default:
         return ''
     }
@@ -84,12 +84,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(38, 148, 120,0.2)',
   },
   labelInActive: {
+    paddingTop: 5,
     fontFamily: 'Effra-Regular',
     fontSize: setValue(12),
     color: 'rgba(0,0,0,0.38)',
     paddingLeft: getWidth(5),
   },
   labelActive: {
+    paddingTop: 5,
     fontFamily: 'EffraMedium-Regular',
     fontSize: setValue(12),
     color: colors.RED,

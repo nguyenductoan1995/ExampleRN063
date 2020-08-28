@@ -9,6 +9,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { getHeight, setValue } from 'utils/utils'
 import { IconTabbarCustom } from 'components/common'
 import colors from 'utils/colors'
+import axios from 'axios'
+import VietNam from 'screens/VietNam/VietNam'
 import { AuthContext } from './context'
 import screens from './screens'
 
@@ -29,7 +31,7 @@ function Home() {
       tabBarOptions={{
         activeTintColor: 'red',
         inactiveTintColor: 'blue',
-        activeBackgroundColor: colors.BubbleBG,
+        activeBackgroundColor: colors.PRIMARY,
         style: {
           height: getHeight(56),
           // borderTopWidth: 0,
@@ -42,7 +44,7 @@ function Home() {
 
     >
       <Tab.Screen name={screens.NewFeeds} component={NewFeeds} />
-      <Tab.Screen name="Hello" component={NewFeeds} />
+      <Tab.Screen name={screens.VietNam} component={VietNam} />
     </Tab.Navigator>
   )
 }
@@ -100,6 +102,8 @@ function App({ logged }) {
   }), [])
 
   React.useEffect(() => {
+    axios.defaults.headers.common['x-rapidapi-key'] = '00caedb47fmsh57c7d930ca62b74p11531bjsn108f00b50638'
+    axios.defaults.headers.common.useQueryString = true
     if (!logged) {
       setAuthStack(true)
       setOnboarding(true)
@@ -113,20 +117,20 @@ function App({ logged }) {
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
-          {authStack ? (
+          {/* {authStack ? (
             <Stack.Screen
               name={screens.AuthStack}
               component={AuthStack}
             />
-          ) : (
+          ) : ( */}
 
-            <Stack.Screen
-              options={{ headerMode: 'none' }}
-              name={screens.Home}
-              component={Home}
-            />
+          <Stack.Screen
+            options={{ headerMode: 'none' }}
+            name={screens.Home}
+            component={Home}
+          />
 
-          )}
+          {/* )} */}
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>

@@ -1,7 +1,7 @@
 export default {
   BLACK: 'rgba(0,0,0,1)',
   WHITE: '#FFFFFF',
-  PRIMARY: '#f5a623',
+  PRIMARY: '#66ccff',
   SMOKE: 'rgba(58,58,58,0.38)',
   GREY: '#dddddd',
   RED: '#d0021b',

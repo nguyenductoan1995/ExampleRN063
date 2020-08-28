@@ -2,6 +2,7 @@ export default {
   SplashScreen: 'SplashScreen',
   Login: 'Login',
   Home: 'Home',
-  NewFeeds:'NewFeeds',
-  AuthStack:'AuthStack'
+  NewFeeds: 'Tổng Quan',
+  VietNam: 'Cụ thể',
+  AuthStack: 'AuthStack',
 }

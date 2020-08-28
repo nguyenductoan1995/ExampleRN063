@@ -5,7 +5,6 @@ import { ModalManager, Loading } from 'screens/Global'
 import { get } from 'lodash'
 import { connect } from 'react-redux'
 import SplashScreen from 'react-native-splash-screen'
-import axios from 'axios'
 
 const LoadingAsync = ({ logged, authData }) => {
   const [height, setHeight] = React.useState(0)
@@ -43,12 +42,6 @@ const LoadingAsync = ({ logged, authData }) => {
   }
 
   const onStart = () => {
-    if (logged) {
-      axios.defaults.headers.common.CompanyID = get(logged, 'CompanyID')
-      axios.defaults.headers.common.ContractorID = get(logged, 'ContractorID')
-    }
-    axios.defaults.headers.common.ClientID = get(authData, 'apiclientid')
-    axios.defaults.headers.common.ClientSecret = get(authData, 'apiclientsecret')
     SplashScreen.hide()
   }
 
@@ -63,7 +56,6 @@ const LoadingAsync = ({ logged, authData }) => {
   )
 }
 
-
 const mapStateToProps = ({ authStore }) => {
   const logged = get(authStore, 'LoginData')
   const authData = get(authStore, 'AuthorisationData')
@@ -72,7 +64,6 @@ const mapStateToProps = ({ authStore }) => {
     authData,
   }
 }
-
 
 export default connect(mapStateToProps)(LoadingAsync)
 

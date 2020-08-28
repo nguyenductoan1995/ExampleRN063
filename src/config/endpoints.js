@@ -1,10 +1,9 @@
-export const AuthorisationURL = ''
-export const APIURL = ''
+export const AuthorisationURL = 'https://covid-193.p.rapidapi.com'
+export const APIURL = 'https://covid-193.p.rapidapi.com'
 
 export const API_ENDPOINTS = {
   auth: {
-    Employer: '/Authorisation/ValidateUmbrellaEmployer',
-    login: '/Login/ValidateLogin',
+    login: '/statistics',
   },
   dashBoard: {
     Summary: '/Dashboard/Summary',

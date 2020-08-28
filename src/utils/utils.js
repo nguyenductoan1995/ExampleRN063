@@ -56,7 +56,7 @@ export const getWidth = (value) => {
   return (pivotWidth * ratio) * (width / pivotWidth)
 }
 
-export const formatMoney = (value = 0) => `£${parseFloat(value).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`
+export const formatNumber = (value = 0) => parseFloat(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 export const formatDate = (value = new Date()) => moment(value, 'DD-MM-YYYY').format('DD/MM/YYYY')
 
 export const checkButton = (data = []) => {

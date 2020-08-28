@@ -15,14 +15,14 @@ const LeftIcon = React.memo(({ onPressLeft = () => {} }) => (
     onPress={onPressLeft}
     style={styles.left}
   >
-    <FastImage
-      resizeMode="contain"
-      style={styles.iconLeft}
-      source={homeIcon}
+    <VectorIcon
+      name="virus"
+      type="mdc"
+      size={24}
+      color={colors.RED}
     />
   </TouchableOpacity>
 ))
-
 
 const Middle = React.memo(({ title }) => (
   title ? (
@@ -112,10 +112,10 @@ render() {
               onPress={this.onSearch}
             />
             )}
-            <RightIcon
+            {/* <RightIcon
               newMessage
               onPressRight={onPressRight}
-            />
+            /> */}
           </Block>
         </>
       ) : (
