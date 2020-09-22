@@ -5,10 +5,10 @@ import colors from 'utils/colors'
 import { getHeight, getWidth, setValue, screenWidth } from 'utils/utils'
 import { Input, Button } from 'components/common'
 import { ScrollView } from 'react-native-gesture-handler'
-import screens from 'navgation/screens'
+import screens from 'navigation/screens'
 import { get } from 'lodash'
 import { connect } from 'react-redux'
-import { AuthContext } from 'navgation/context'
+import { AuthContext } from 'navigation/context'
 import { login } from 'store/Authorisation/actions'
 
 const Login = ({ doLogin, AuthorisationData, navigation }) => {

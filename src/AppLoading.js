@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StatusBar, Keyboard, Platform } from 'react-native'
-import App from 'navgation'
+import App from 'navigation'
 import { ModalManager, Loading } from 'screens/Global'
 import { get } from 'lodash'
 import { connect } from 'react-redux'

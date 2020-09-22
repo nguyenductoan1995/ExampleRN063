@@ -11,6 +11,8 @@ import { IconTabbarCustom } from 'components/common'
 import colors from 'utils/colors'
 import axios from 'axios'
 import VietNam from 'screens/VietNam/VietNam'
+import { Media } from 'screens/Media'
+import { FlatlistCustom } from 'screens/Custom'
 import { AuthContext } from './context'
 import screens from './screens'
 
@@ -20,7 +22,7 @@ const Tab = createBottomTabNavigator()
 function Home() {
   return (
     <Tab.Navigator
-      initialRouteName={screens.NewFeeds}
+      initialRouteName={screens.Custom}
       screenOptions={({ route }) => ({
         tabBarLabel: () => null,
         tabBarIcon: (props) => (
@@ -45,6 +47,8 @@ function Home() {
     >
       <Tab.Screen name={screens.NewFeeds} component={NewFeeds} />
       <Tab.Screen name={screens.VietNam} component={VietNam} />
+      <Tab.Screen name={screens.Media} component={Media} />
+      <Tab.Screen name={screens.Custom} component={FlatlistCustom} />
     </Tab.Navigator>
   )
 }

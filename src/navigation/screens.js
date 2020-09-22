@@ -5,4 +5,6 @@ export default {
   NewFeeds: 'Tổng Quan',
   VietNam: 'Cụ thể',
   AuthStack: 'AuthStack',
+  Media: 'Media',
+  Custom: 'Custom',
 }

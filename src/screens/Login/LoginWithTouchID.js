@@ -9,8 +9,7 @@ import { touchID, logo, treeGrey } from 'assets/images'
 import TouchID from 'react-native-touch-id'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
-import { AuthContext } from 'navgation/context'
-
+import { AuthContext } from 'navigation/context'
 
 const LoginWithTouchID = ({ logged }) => {
   const { loginTouchID, authStackCancel } = React.useContext(AuthContext)
@@ -60,13 +59,11 @@ const LoginWithTouchID = ({ logged }) => {
       })
   }
 
-
   const nextScreen = () => {
     if (logged) {
       loginTouchID()
     }
   }
-
 
   return (
     <Block flex={1} style={styles.contain}>
@@ -97,7 +94,6 @@ const mapStateToProps = ({ authStore }) => {
     logged,
   }
 }
-
 
 export default connect(mapStateToProps)(LoginWithTouchID)
 

@@ -6,7 +6,7 @@ import { getWidth, getHeight, screenWidth, setValue } from 'utils/utils'
 import { Input, Button } from 'components/common'
 import colors from 'utils/colors'
 import { Header } from 'components/common/Header'
-import screens from 'navgation/screens'
+import screens from 'navigation/screens'
 
 export default class ForgotPassWord extends Screen {
   constructor(props) {

@@ -4,7 +4,7 @@ import { StyleSheet, Text } from 'react-native'
 import { get } from 'lodash'
 import { setValue, getWidth } from 'utils/utils'
 import colors from 'utils/colors'
-import screens from 'navgation/screens'
+import screens from 'navigation/screens'
 import VectorIcon from './VectorIcon'
 
 export default class IconTabbarCustom extends React.PureComponent {
@@ -16,7 +16,7 @@ export default class IconTabbarCustom extends React.PureComponent {
       case screens.VietNam:
         return 'shield-virus'
       default:
-        return ''
+        return 'meho'
     }
   }
 
@@ -28,7 +28,7 @@ export default class IconTabbarCustom extends React.PureComponent {
       case screens.VietNam:
         return 'fa5'
       default:
-        return ''
+        return 'ant'
     }
   }
 

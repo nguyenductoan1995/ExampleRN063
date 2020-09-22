@@ -1,4 +1,4 @@
-import screensName from 'navgation/screens'
+import screensName from 'navigation/screens'
 import StatefulComponent from './StatefulComponent'
 
 export default class Screen extends StatefulComponent {
